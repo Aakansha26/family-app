@@ -1,0 +1,9 @@
+.myEventsList {
+    flex: 1;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 75vh;
+  }
+

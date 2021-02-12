@@ -1,0 +1,25 @@
+.sidebarRow {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebarRow:hover {
+  background-color: rgb(156 168 227);
+  border-radius: 10px;
+}
+
+
+.sidebarRow > .MuiSvgIcon-root {
+  font-size: 50;
+  color:#c62c2c;
+}
+  
+  .sidebarRow > h4 {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  

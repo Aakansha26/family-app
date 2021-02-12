@@ -1,0 +1,21 @@
+.addFamilyMemberForm {
+    flex: 1;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    min-height: 75vh;
+  }
+
+.addFamilyMemberForm form {
+    margin: 30px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addFamilyMemberForm .form_field {
+    margin: 10px;
+}

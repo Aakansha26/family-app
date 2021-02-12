@@ -1,0 +1,17 @@
+.notificationBar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .notificationBar:hover {
+    background-color: #d2a9c8d1;
+    border-radius: 10px;
+  }
+  
+  .notificationBar > p {
+    border-bottom: 2px solid #2e81f4;
+ 
+  }
+  
