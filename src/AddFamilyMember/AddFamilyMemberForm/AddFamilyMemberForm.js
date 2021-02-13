@@ -22,16 +22,16 @@ function AddFamilyMemberForm() {
     };
 
     const invalidEmail = () => {
-        if(email.includes("@gmail.com"));
-           return false;
+        if(email.includes("@gmail.com"))
+            return false;
         return true;
     }
 
     const invalidRelation = () => {
         let letters = /^[A-Za-z]+$/;
-        if(!relation.match(letters))
-          return true;
-        return false;
+        if(relation.match(letters))
+          return false;
+        return true;
     }
 
     const handleSubmit = (event) =>
@@ -41,24 +41,37 @@ function AddFamilyMemberForm() {
         {
             openErrorSnackbar("Enter valid Email");
         }
-
         else if(invalidRelation())
         {
             openErrorSnackbar("Enter valid Relation");
+        }
+        else 
+        {
+            openSuccessSnackbar();
         }
         setEmail('');
         setRelation('');
     }
 
     const openErrorSnackbar = (message) => {
-        setErrorSnackbarOpen(true);
         setSnackbarMessage(message)
+        setErrorSnackbarOpen(true);
+        
     }
 
     const closeErrorSnackbar = () => {
         setErrorSnackbarOpen(false);
         setSnackbarMessage("");
     }
+
+    const openSuccessSnackbar = () => {
+        setSuccessSnackbarOpen(true);
+    }
+
+    const closeSuccessSnackbar = () => {
+        setSuccessSnackbarOpen(false);
+    }
+
     return (
         <div className="addFamilyMemberForm">
             <h2>Add a Family Member!</h2>
@@ -95,6 +108,18 @@ function AddFamilyMemberForm() {
                     onClose={closeErrorSnackbar}>
                     <Alert elevation={6} variant="filled" onClose={closeErrorSnackbar} severity="error">
                         {snackbarMessage}
+                    </Alert>
+            </Snackbar>
+
+            <Snackbar anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                    }}
+                    open={successSnackbarOpen}
+                    autoHideDuration={4000}
+                    onClose={closeSuccessSnackbar}>
+                    <Alert elevation={6} variant="filled" onClose={closeSuccessSnackbar} severity="success">
+                        Request sent successfully!
                     </Alert>
             </Snackbar>
 

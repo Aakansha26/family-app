@@ -4,7 +4,7 @@
     margin: 15vh auto;
     align-items: center;
     justify-content: space-between;
-    height: 50vh;
+    height: 45vh;
     width: 25vw;
     background-color: #fff;
     border-radius: 15px;
@@ -25,6 +25,7 @@
     margin-right: 10px;
 }
 
-.login_center > p {
-    margin:0 10px;
+.login_center > h3 {
+    margin:0 15px;
+    font-weight: 600;
 }

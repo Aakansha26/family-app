@@ -1,9 +1,8 @@
 .createEventForm {
     flex: 1;
-    padding: 40px 50px;
+    padding: 50px 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 75vh;
   }
@@ -14,6 +13,6 @@
 }
 
 .form_field {
-    margin: 10px;
+    margin: 13px;
 }
 

@@ -1,19 +1,18 @@
-.familyMember {
-    margin: 10px auto;
+  .familyMember {
+    margin: 15px;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
   }
-  
+
   .familyMember__top {
     display: flex;
     position: relative;
     align-items: center;
     flex-direction: column;
     padding: 6px 25px;
-    border-bottom: 1px solid lightgray;;
+    border-bottom: 1px solid lightgray;
   }
-
 
   .familyMember__bottom {
     display: flex;

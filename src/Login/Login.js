@@ -35,7 +35,7 @@ function Login() {
                 <h2>Parivaar</h2>
             </div>
             <div className="login_center">
-                <p><i>"Families are like branches on a tree. We grow in different directions yet our roots remain as one."</i></p>
+                <h3><i>"Families are like branches on a tree. We grow in different directions yet our roots remain as one."</i></h3>
             </div>
             <Button variant="contained" color="secondary" onClick={signIn}>
                 SIGN IN

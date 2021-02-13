@@ -1,13 +1,4 @@
 .myFamily {
-    display: flex;
-    height:max-content;
-  }
+  display: flex;
+}
 
-.myFamily .inner-div {
-    flex: 1;
-    padding: 40px 50px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
- 

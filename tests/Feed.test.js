@@ -6,8 +6,8 @@ configure({ adapter: new React16Adapter() });
 import renderer from 'react-test-renderer'
 import { fireEvent, render, screen, getByText } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Feed from '../Home/Feed/Feed'
-import MessageSender from '../Home/Feed/MessageSender/MessageSender'
+import Feed from '../src/Home/Feed/Feed'
+import MessageSender from '../src/Home/Feed/MessageSender/MessageSender'
 
 describe('Feed Component', () => {
     it('renders one MessageSender component', () => {
