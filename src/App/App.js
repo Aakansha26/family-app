@@ -12,14 +12,17 @@ import MyFamily from '../MyFamily/MyFamily'
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
+  
   return (
     <div className="app">
       <Header />
-      {!user? 
+     
+      {/* if user is not logged in */}
+      {!user?                                                                        
           <Route exact path="/" component={Login} />
         :
-        (
-          <Switch> 
+        (                                                                              
+          <Switch>                                                                   {/* if user is logged in */}
             <Route exact path="/" component={Home} />
             <Route path="/createEvent" component={CreateEvent} />
             <Route path="/myEvents" component={MyEvents} />
