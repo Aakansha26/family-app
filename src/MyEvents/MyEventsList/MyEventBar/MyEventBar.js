@@ -4,8 +4,10 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import db from '../../../firebase'
 
+//Component to show individual event information
 function MyEventBar({id, eventName, eventDescription, eventDate}) {
 
+    //Function to delete event 
     const deleteEvent = (event) => {
        event.preventDefault();
        db.collection("events").doc(id).delete();

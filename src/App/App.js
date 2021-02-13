@@ -12,12 +12,13 @@ import MyFamily from '../MyFamily/MyFamily'
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
+  
   return (
     <div className="app">
-       <Header />
-    
-    {/* if user is not logged in */}
-    {!user?                                                                        
+      <Header />
+     
+      {/* if user is not logged in */}
+      {!user?                                                                        
           <Route exact path="/" component={Login} />
         :
         (                                                                              

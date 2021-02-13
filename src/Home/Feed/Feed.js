@@ -4,10 +4,12 @@ import './Feed.css'
 import MessageSender from './MessageSender/MessageSender'
 import Post from './Post/Post'
 
+//Home screen wall Component
 function Feed() {
 
     const [posts, setPosts] = useState([]);
 
+  //Retrieving posts from DB
   useEffect(() => {
     db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
       setPosts(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data()})))

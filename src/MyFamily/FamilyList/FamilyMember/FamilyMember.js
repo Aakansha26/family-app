@@ -3,6 +3,7 @@ import { Avatar } from '@material-ui/core';
 import './FamilyMember.css'
 import CakeIcon from '@material-ui/icons/Cake';
 
+//Component to show individual family member
 function FamilyMember({ profilePic, name, relation}) {
     return (
         <div className="familyMember">
