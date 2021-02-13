@@ -10,6 +10,7 @@ import { useStateValue } from '../../../StateProvider'
 import db from '../../../firebase'
 import firebase from 'firebase'
 
+//Component to create post
 function MessageSender() {
 
     const [{ user }, dispatch] = useStateValue();
@@ -29,6 +30,7 @@ function MessageSender() {
        
     };
 
+    //Function to find user's location to share
     const getLocation = (event) => {
       if('geolocation' in navigator)
       {
@@ -58,9 +60,6 @@ function MessageSender() {
               placeholder={`Share feelings with your family...`}
             />
          
-            {/* <Button variant="contained" color="primary">
-              Primary
-            </Button> */}
             <Button variant="contained" size="small" color="primary" onClick={handleSubmit} >
               Post
             </Button>
