@@ -1,6 +1,8 @@
 import React from 'react'
 import FamilyMember from './FamilyMember/FamilyMember'
 import './FamilyList.css'
+
+//Component to show list of family members
 function FamilyList() {
     return (
         <div className="familyList">
