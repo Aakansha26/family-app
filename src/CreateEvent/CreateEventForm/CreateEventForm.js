@@ -11,7 +11,7 @@ function CreateEventForm() {
     const [eventText, setEventText] = useState('')
     const [eventDate, setEventDate] = useState('')
     const [successSnackbarOpen, setSuccessSnackbarOpen] = useState(false);
-    
+    const [errorSnackbarOpen, setErrorSnackbarOpen] = useState(false);
 
     const handleNameChange = (event) => {
         setEventName(event.target.value);
@@ -25,16 +25,28 @@ function CreateEventForm() {
         setEventDate(event.target.value)
     };
   
+    const invalidEventName = () => {
+        if(eventName.length <= 0)
+         return true;
+        return false;
+    }
 
     const handleSubmit = (event) => {
        event.preventDefault();
-       
-       db.collection('events').add({
-            eventName: eventName,
-            eventDescription: eventText,
-            eventDate: eventDate
-       })
-       openSuccessSnackbar();
+       if(invalidEventName())
+       {
+           openErrorSnackbar();
+       }
+       else
+       {
+            db.collection('events').add({
+                    eventName: eventName,
+                    eventDescription: eventText,
+                    eventDate: eventDate
+            })
+            openSuccessSnackbar();
+       }
+      
        setEventName('');
        setEventText('');
        setEventDate('');
@@ -47,6 +59,15 @@ function CreateEventForm() {
 
     const closeSuccessSnackbar = () => {
         setSuccessSnackbarOpen(false);
+    }
+
+    const openErrorSnackbar = (message) => {
+        setErrorSnackbarOpen(true);
+        
+    }
+
+    const closeErrorSnackbar = () => {
+        setErrorSnackbarOpen(false);
     }
 
     return (
@@ -108,6 +129,18 @@ function CreateEventForm() {
                     onClose={closeSuccessSnackbar}>
                     <Alert elevation={6} variant="filled" onClose={closeSuccessSnackbar} severity="success">
                         Event Added Successfully!
+                    </Alert>
+            </Snackbar>
+
+            <Snackbar anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                    }}
+                    open={errorSnackbarOpen}
+                    autoHideDuration={4000}
+                    onClose={closeErrorSnackbar}>
+                    <Alert elevation={6} variant="filled" onClose={closeErrorSnackbar} severity="error">
+                        Event Name cannot be empty
                     </Alert>
             </Snackbar>
 

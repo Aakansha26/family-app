@@ -14,7 +14,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import {Redirect} from 'react-router-dom'
 
 function Header() {
-
+    
     const [state, dispatch] = useStateValue();
     const signOut = () => {
         auth.signOut().then(() => {
@@ -41,7 +41,7 @@ function Header() {
               <React.Fragment>
                       <div className="header__center">
                 <div className="header__input">
-                   <SearchIcon />
+                   {/* <SearchIcon /> */}
                    <input type="text" placeholder="Search family"/>
                 </div>
             </div>
@@ -49,7 +49,7 @@ function Header() {
                 <div className="header__option icons">
                     <Tooltip title="Home">
                         <NavLink activeClassName='activeLink' exact to="/">
-                            <HomeIcon />
+                             <HomeIcon />          {/*Home Screen */}
                         </NavLink>
                     </Tooltip>
                    

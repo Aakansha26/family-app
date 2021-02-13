@@ -6,7 +6,7 @@ import './Home.css'
 
 function Home() {
     return ( 
-        <div className="home__body">
+        <div className="home">
             <Sidebar />
             <Feed />
             <Notifications />

@@ -1,18 +1,16 @@
 import React from 'react'
-import CreateEventForm from '../src/CreateEvent/CreateEventForm/CreateEventForm'
+import CreateEventForm from '../CreateEvent/CreateEventForm/CreateEventForm'
 import renderer from 'react-test-renderer'
 import { configure } from 'enzyme';
 import React16Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new React16Adapter() });
-import { shallow, mount } from 'enzyme';
-import { fireEvent, render, screen, getByText } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 it("Simple test", () => {
     expect(true).toBe(true);
 })
 
-const mocksubmitClose = jest.fn();
 
 describe("CreateEventForm Component", () => {
 
@@ -25,6 +23,9 @@ describe("CreateEventForm Component", () => {
     it("CreateEventForm Renders properly", () => {
         render(<CreateEventForm />);
         expect(screen.getByText("Time to Remember Family Occassions!")).toBeInTheDocument();
+        expect(screen.getByText("Event Name")).toBeInTheDocument();
+        expect(screen.getByText("Event Description")).toBeInTheDocument();
+        expect(screen.getByText("Event Date")).toBeInTheDocument();
         expect(screen.getByText("Add Event")).toBeInTheDocument();
     })
 
@@ -44,13 +45,22 @@ describe("CreateEventForm Component", () => {
 
 })
 
-describe("Test to check submit button works properly", () => {
+describe("Test to check 'Add Event' button works properly", () => {
     it("when input fields are empty", () => {
 
      const { container, getByText } = render(<CreateEventForm />);
      fireEvent.click(getByText('Add Event'));
 
-     expect(screen.getByText("Please enter valid name!")).toBeInTheDocument();
+     expect(screen.getByText("Event Name cannot be empty")).toBeInTheDocument();
 
     });
+
+    it("when input fields are not empty", () => {
+        const { container, getByText, getByTestId } = render(<CreateEventForm />);
+        fireEvent.change(getByTestId('eventName-id'), { target: { value: "Birthday" } })
+        fireEvent.change(getByTestId('eventDescription-id'), { target: { value: "Buy birthday gift" } })
+        fireEvent.change(getByTestId('eventDate-id'), { target: { value: '2020-05-24'  } })
+        fireEvent.click(getByText('Add Event'));
+        expect(screen.getByText("Event Added Successfully!")).toBeInTheDocument();
+    })
 })

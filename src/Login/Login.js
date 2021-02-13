@@ -10,7 +10,9 @@ function Login() {
 
     const [state, dispatch] = useStateValue('');
   
-    const signIn = () => {
+    // Google Authentication
+    const signIn = () => { 
+
         auth
           .signInWithPopup(provider)
           .then((result) => {

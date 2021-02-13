@@ -3,6 +3,7 @@ import db from '../../firebase'
 import MyEventBar from './MyEventBar/MyEventBar'
 import './MyEventsList.css'
 
+//Component to show list of events
 function MyEventsList() {
 
     const [myEvents, setmyEvents] = useState([]);

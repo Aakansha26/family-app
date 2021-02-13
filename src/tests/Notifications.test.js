@@ -1,5 +1,5 @@
 import React from 'react'
-import Notifications from '../src/Notifications/Notifications'
+import Notifications from '../Notifications/Notifications'
 import renderer from 'react-test-renderer'
 import { fireEvent, render, screen, getByText } from "@testing-library/react";
 import "@testing-library/jest-dom";
