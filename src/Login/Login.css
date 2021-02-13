@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: space-between;
     height: 45vh;
-    width: 25vw;
+    width: 23vw;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
@@ -28,4 +28,5 @@
 .login_center > h3 {
     margin:0 15px;
     font-weight: 600;
+    text-align: justify;
 }

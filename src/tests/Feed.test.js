@@ -9,6 +9,10 @@ import "@testing-library/jest-dom";
 import Feed from '../Home/Feed/Feed'
 import MessageSender from '../Home/Feed/MessageSender/MessageSender'
 
+// it("Simple test", () => {
+//   expect(true).toBe(true);
+// })
+
 describe('Feed Component', () => {
     it('renders MessageSender component', () => {
       const wrapper = shallow(<Feed />);

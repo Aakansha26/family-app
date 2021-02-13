@@ -19,7 +19,7 @@ function App() {
      
       {/* if user is not logged in */}
       {!user?                                                                        
-          <Route exact path="/" component={Login} />
+          <Route path="/" component={Login} />
         :
         (                                                                              
           <Switch>                                                                   {/* if user is logged in */}

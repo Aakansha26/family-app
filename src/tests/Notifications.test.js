@@ -4,9 +4,6 @@ import renderer from 'react-test-renderer'
 import { fireEvent, render, screen, getByText } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-it("Simple test", () => {
-    expect(true).toBe(true);
-})
 describe("Notifications Component", () => {
 
     it("Snapshot test", () => {

@@ -7,10 +7,6 @@ configure({ adapter: new React16Adapter() });
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-it("Simple test", () => {
-    expect(true).toBe(true);
-})
-
 
 describe("CreateEventForm Component", () => {
 

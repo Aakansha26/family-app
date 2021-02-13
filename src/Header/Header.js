@@ -11,11 +11,14 @@ import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
 import { auth, provider } from '../firebase';
 import Tooltip from '@material-ui/core/Tooltip';
-import {Redirect} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 function Header() {
     
     const [state, dispatch] = useStateValue();
+    const history = useHistory();
+
+    //Function to logout user
     const signOut = () => {
         auth.signOut().then(() => {
             
@@ -24,6 +27,7 @@ function Header() {
                 user: null,
               });
               
+              history.push("/");
           }).catch((error) => {
               console.log(error.message);
           });
@@ -49,7 +53,7 @@ function Header() {
                 <div className="header__option icons">
                     <Tooltip title="Home">
                         <NavLink activeClassName='activeLink' exact to="/">
-                            <HomeIcon />                                                  {/* Home Screen */}
+                            <HomeIcon />                                                 
                         </NavLink>
                     </Tooltip>
                    
@@ -57,13 +61,13 @@ function Header() {
                 <div className="header__option icons">
                     <Tooltip title="Create Event">
                         <NavLink activeClassName='activeLink' to="/createEvent">
-                            <LibraryAddIcon />                                             {/* Create Event Form */}
+                            <LibraryAddIcon />                                            
                         </NavLink>
                     </Tooltip>
                 
                 </div>
                 <div className="header__option icons">
-                    <Tooltip title="Add a Family member">                                   {/* Add Family Member form */}
+                    <Tooltip title="Add a Family member">                                 
                         <NavLink activeClassName='activeLink' to="/addFamilyMember">
                             <GroupAddIcon />
                         </NavLink>   
