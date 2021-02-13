@@ -49,7 +49,7 @@ function Header() {
                 <div className="header__option icons">
                     <Tooltip title="Home">
                         <NavLink activeClassName='activeLink' exact to="/">
-                            <HomeIcon />
+                            <HomeIcon />                                                  {/* Home Screen */}
                         </NavLink>
                     </Tooltip>
                    
@@ -57,13 +57,13 @@ function Header() {
                 <div className="header__option icons">
                     <Tooltip title="Create Event">
                         <NavLink activeClassName='activeLink' to="/createEvent">
-                            <LibraryAddIcon />
+                            <LibraryAddIcon />                                             {/* Create Event Form */}
                         </NavLink>
                     </Tooltip>
                 
                 </div>
                 <div className="header__option icons">
-                    <Tooltip title="Add a Family member">
+                    <Tooltip title="Add a Family member">                                   {/* Add Family Member form */}
                         <NavLink activeClassName='activeLink' to="/addFamilyMember">
                             <GroupAddIcon />
                         </NavLink>   
