@@ -11,7 +11,6 @@ function MyEventsList() {
     useEffect(() => {
         db.collection('events').onSnapshot(snapshot => {
             setmyEvents(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data()})))
-            console.log(myEvents);
         })
     }, [])
 

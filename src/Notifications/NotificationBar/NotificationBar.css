@@ -1,7 +1,7 @@
 .notificationBar {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 7px;
     cursor: pointer;
   }
   

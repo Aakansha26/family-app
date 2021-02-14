@@ -15,6 +15,7 @@ describe("Notifications Component", () => {
     it("Renders properly", () => {
         render(<Notifications />);
         expect(screen.getByText("TODAY'S EVENTS")).toBeInTheDocument();
+        expect(screen.getByText("UPCOMING EVENTS")).toBeInTheDocument();
     })
 
 })

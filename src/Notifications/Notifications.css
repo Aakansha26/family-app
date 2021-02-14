@@ -7,6 +7,14 @@
     
   }
 
+.today-events {
+  margin: 6px;
+}
+
+.upcoming-events {
+  margin: 25px auto;
+}
+
 .notifications .heading {
     display: flex;
     align-items: center;

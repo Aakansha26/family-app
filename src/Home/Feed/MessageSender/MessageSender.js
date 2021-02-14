@@ -15,7 +15,8 @@ function MessageSender() {
 
     const [{ user }, dispatch] = useStateValue();
     const [input, setInput] = useState('');
-    const [inputURL, setInputURL] = useState('');
+    const [latitude, setLatitude] = useState('');
+    const [longitude, setLongitude] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,9 +25,12 @@ function MessageSender() {
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           profilePic: user.photoURL,
           username: user.displayName,
-          image: inputURL
+          latitude: latitude,
+          longitude: longitude
         })
         setInput('');
+        setLatitude('');
+        setLongitude('');
        
     };
 
@@ -38,10 +42,8 @@ function MessageSender() {
           let latitude = position.coords.latitude;
           let longitude = position.coords.longitude;
           console.log(latitude,longitude);
-          var latlon = latitude + "," + longitude;
-          var img_url = `https://maps.googleapis.com/maps/api/staticmap?center=
-          ${latlon}&zoom=14&size=400x300&sensor=false&key=AIzaSyBdtJt886_Oe7rN1glJx_2IL0wo9ilJx1g`;
-          setInputURL(img_url);
+          setLatitude(latitude);
+          setLongitude(longitude);
         })
       }
       else console.log("Location not supported");

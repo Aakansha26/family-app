@@ -12,6 +12,7 @@ function CreateEventForm() {
     const [eventDate, setEventDate] = useState('')
     const [successSnackbarOpen, setSuccessSnackbarOpen] = useState(false);
     const [errorSnackbarOpen, setErrorSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState("");
 
     const handleNameChange = (event) => {
         setEventName(event.target.value);
@@ -31,12 +32,25 @@ function CreateEventForm() {
         return false;
     }
 
+    const invalidDate = () => {
+        console.log(eventDate);
+        let curdate = new Date();
+        curdate.setDate(curdate.getDate()-1);
+        if(new Date(eventDate) <= curdate)
+           return true;
+        return false;
+    }
+
     const handleSubmit = (event) => {
        event.preventDefault();
        if(invalidEventName())
-       {
-           openErrorSnackbar();
-       }
+        {
+            openErrorSnackbar("Event Name cannot be empty!");
+        }
+        else if(invalidDate())
+        {
+            openErrorSnackbar("Event's Date should be today or greater!");
+        }
        else
        {
             db.collection('events').add({
@@ -62,11 +76,13 @@ function CreateEventForm() {
     }
 
     const openErrorSnackbar = (message) => {
+        setSnackbarMessage(message)
         setErrorSnackbarOpen(true);
         
     }
 
     const closeErrorSnackbar = () => {
+        setSnackbarMessage("");
         setErrorSnackbarOpen(false);
     }
 
@@ -140,7 +156,7 @@ function CreateEventForm() {
                     autoHideDuration={4000}
                     onClose={closeErrorSnackbar}>
                     <Alert elevation={6} variant="filled" onClose={closeErrorSnackbar} severity="error">
-                        Event Name cannot be empty
+                        {snackbarMessage}
                     </Alert>
             </Snackbar>
 

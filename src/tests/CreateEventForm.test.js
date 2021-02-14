@@ -46,7 +46,7 @@ describe("Test to check 'Add Event' button works properly", () => {
      const { container, getByText } = render(<CreateEventForm />);
      fireEvent.click(getByText('Add Event'));
 
-     expect(screen.getByText("Event Name cannot be empty")).toBeInTheDocument();
+     expect(screen.getByText("Event Name cannot be empty!")).toBeInTheDocument();
 
     });
 
@@ -54,7 +54,7 @@ describe("Test to check 'Add Event' button works properly", () => {
         const { container, getByText, getByTestId } = render(<CreateEventForm />);
         fireEvent.change(getByTestId('eventName-id'), { target: { value: "Birthday" } })
         fireEvent.change(getByTestId('eventDescription-id'), { target: { value: "Buy birthday gift" } })
-        fireEvent.change(getByTestId('eventDate-id'), { target: { value: '2020-05-24'  } })
+        fireEvent.change(getByTestId('eventDate-id'), { target: { value: '2021-05-24'  } })
         fireEvent.click(getByText('Add Event'));
         expect(screen.getByText("Event Added Successfully!")).toBeInTheDocument();
     })

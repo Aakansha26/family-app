@@ -45,7 +45,7 @@ function Header() {
               <React.Fragment>
                       <div className="header__center">
                 <div className="header__input">
-                   {/* <SearchIcon /> */}
+                   <SearchIcon />
                    <input type="text" placeholder="Search family"/>
                 </div>
             </div>
