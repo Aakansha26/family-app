@@ -1,9 +1,6 @@
 import React from 'react'
-import CreateEventForm from '../CreateEvent/CreateEventForm/CreateEventForm'
+import CreateEventForm from '../../CreateEvent/CreateEventForm/CreateEventForm'
 import renderer from 'react-test-renderer'
-import { configure } from 'enzyme';
-import React16Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new React16Adapter() });
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 

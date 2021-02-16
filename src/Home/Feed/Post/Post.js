@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { Avatar } from '@material-ui/core';
-import './Post.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NearMeIcon from '@material-ui/icons/NearMe';
-import { ExpandMoreOutlined } from '@material-ui/icons';
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import './Post.css';
 
 //Component to show posts
 function Post({ profilePic, username, timestamp, message, latitude, longitude }) {
@@ -47,7 +45,7 @@ function Post({ profilePic, username, timestamp, message, latitude, longitude })
           <Avatar src={profilePic} className="post__avatar" />
           <div className="post__topInfo">
             <h3>{username}</h3>
-            <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
+            <p>{timestamp.toDate().toUTCString()}</p>
           </div>
         </div>
 
@@ -57,7 +55,7 @@ function Post({ profilePic, username, timestamp, message, latitude, longitude })
         </div>
 
         {/* div to show location map */}
-        <div className={(latitude !== '' && longitude != '')?"map_div":""}> 
+        <div className={(latitude !== '' && longitude !== '')?"map_div":""} > 
            {mapImg}
         </div>
         

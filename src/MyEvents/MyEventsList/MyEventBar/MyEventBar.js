@@ -5,19 +5,19 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import db from '../../../firebase'
 
 //Component to show individual event information
-function MyEventBar({id, eventName, eventDescription, eventDate}) {
+function MyEventBar({id, eventName, eventDescription, eventDate, deleteEvent}) {
 
     //Function to delete event 
-    const deleteEvent = (event) => {
+    const delete_event = (event) => {
        event.preventDefault();
-       db.collection("events").doc(id).delete();
+       deleteEvent(id);
     }
 
     return (
         <div className="myEventBar">
             <div className="eventbar__top">
                 <h4>{eventName}</h4>
-                <IconButton aria-label="delete" onClick={deleteEvent}>
+                <IconButton aria-label="delete" onClick={delete_event}>
                     <DeleteIcon />
                 </IconButton>
             </div>

@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home'
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import { Avatar } from '@material-ui/core';
 import './Header.css'
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
@@ -76,6 +77,7 @@ function Header() {
                 </div>
                 <div className="header__option">
                     <p>Welcome, {state.user.displayName}</p>
+                    <Avatar src={state.user.photoURL} className="post__avatar" />
                 </div>
                 <div className="header__option">
                     <Button size="small" variant="contained" onClick={signOut}>Logout</Button>

@@ -1,18 +1,23 @@
 import React, { useState, useEffect} from 'react'
 import NotificationBar from './NotificationBar/NotificationBar'
-import './Notifications.css'
+import DoneIcon from '@material-ui/icons/Done';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import db from '../firebase'
+import db, { auth } from '../firebase'
+import './Notifications.css'
 
 function Notifications() {
 
     const [myEvents, setmyEvents] = useState([]);
     
-    //loading events from DB
+    //loading user events from DB
     useEffect(() => {
-        db.collection('events').onSnapshot(snapshot => {
-            setmyEvents(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data()})))
-        })
+        const userid = auth.currentUser.uid;
+        db.collection('events').where("userRef", "==", `/users/${userid}`)
+            .onSnapshot((querySnapshot) => {
+                setmyEvents(querySnapshot.docs.map(doc => ({ id: doc.id, data: doc.data()})))
+                console.log(myEvents);
+            })
+             
     }, [])
 
     const events_today = []
@@ -24,7 +29,11 @@ function Notifications() {
             //if event date is equal to current date, add it to today's events
             if(new Date(myevent.data.eventDate).toDateString() == new Date().toDateString())
             {
-                events_today.push(<NotificationBar text={myevent.data.eventName} />)
+                events_today.push(
+                <div className="events-div">
+                    <DoneIcon fontSize="small" />
+                    <NotificationBar text={myevent.data.eventName} />
+                </div>)
             }
 
             //if event date is within 7 days add it to upcoming events
@@ -32,7 +41,11 @@ function Notifications() {
             curdate.setDate(curdate.getDate()+7);
             if((new Date(myevent.data.eventDate) > new Date()) && (new Date(myevent.data.eventDate) < curdate))
             {
-                events_upcoming.push(<NotificationBar text={myevent.data.eventName} />)
+                events_upcoming.push(
+                <div className="events-div">
+                    <DoneIcon fontSize="small" />
+                    <NotificationBar text={myevent.data.eventName} />
+                </div>)
             }
         }
     }

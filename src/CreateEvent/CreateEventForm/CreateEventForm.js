@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import './CreateEventForm.css'
-import db from '../../firebase'
+import db, { auth } from '../../firebase'
+import firebase from "firebase"
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
@@ -53,11 +54,26 @@ function CreateEventForm() {
         }
        else
        {
-            db.collection('events').add({
+           const userid = auth.currentUser.uid;
+           db.collection('events').add({
                     eventName: eventName,
                     eventDescription: eventText,
-                    eventDate: eventDate
+                    eventDate: eventDate,
+                    userRef: `/users/${userid}`
             })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+        
+           
+            // db.collection('events').add({
+            //         eventName: eventName,
+            //         eventDescription: eventText,
+            //         eventDate: eventDate
+            // })
             openSuccessSnackbar();
        }
       

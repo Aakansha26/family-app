@@ -8,6 +8,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import PaymentIcon from '@material-ui/icons/Payment';
 import MyEvents from '../MyEvents/MyEvents'
 
+//Sidebar Component 
 function Sidebar() {
     return (
         <div className="sidebar">

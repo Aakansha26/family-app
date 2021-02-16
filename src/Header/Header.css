@@ -62,7 +62,7 @@
   .header__option {
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 15px;
   }
 
   .header__option .icons{
@@ -76,9 +76,16 @@
     padding: 0 20px;
     border-bottom: 0;
   }
+
   .header__option p {
     font-family: ui-monospace;
     font-weight: 400;
+  }
+
+  .header__option .post__avatar {
+    margin: auto 7px;
+    height: 35px;
+    width: 35px;
   }
   
   .header__info > h4 {
