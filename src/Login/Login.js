@@ -5,6 +5,7 @@ import { useStateValue } from '../StateProvider';
 import Button from '@material-ui/core/Button';
 import './Login.css'
 
+//Login Component
 function Login() {
 
     const [state, dispatch] = useStateValue('');
